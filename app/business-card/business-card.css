@@ -64,7 +64,6 @@
 
 .business-card-front {
   background:
-    radial-gradient(circle at 84% 18%, rgba(255, 255, 255, 0.28) 0 0.18rem, transparent 0.2rem),
     radial-gradient(circle at 16% 82%, rgba(255, 255, 255, 0.22) 0 0.16rem, transparent 0.18rem),
     linear-gradient(135deg, #ff4f88 0%, #e72f71 46%, #be1456 100%);
   color: #fff;
@@ -84,6 +83,82 @@
   line-height: 1;
   letter-spacing: 0;
   pointer-events: none;
+}
+
+.front-paws {
+  position: absolute;
+  top: 35px;
+  right: 42px;
+  width: 88px;
+  height: 58px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.paw-print {
+  position: absolute;
+  width: 34px;
+  height: 32px;
+}
+
+.paw-print-one {
+  top: 0;
+  right: 40px;
+  opacity: 0.34;
+  rotate: -17deg;
+}
+
+.paw-print-two {
+  top: 19px;
+  right: 4px;
+  opacity: 0.24;
+  rotate: 12deg;
+  scale: 0.9;
+}
+
+.paw-toe,
+.paw-pad {
+  position: absolute;
+  display: block;
+  background: #fff;
+}
+
+.paw-toe {
+  width: 8px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.paw-toe-1 {
+  top: 7px;
+  left: 1px;
+  rotate: -27deg;
+}
+
+.paw-toe-2 {
+  top: 1px;
+  left: 9px;
+  rotate: -7deg;
+}
+
+.paw-toe-3 {
+  top: 1px;
+  left: 18px;
+  rotate: 7deg;
+}
+
+.paw-toe-4 {
+  top: 7px;
+  right: 1px;
+  rotate: 27deg;
+}
+
+.paw-pad {
+  left: 8px;
+  bottom: 1px;
+  width: 18px;
+  height: 15px;
+  border-radius: 52% 48% 58% 52%;
 }
 
 .front-mark {
@@ -189,8 +264,8 @@
 
 .back-body {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 58px;
-  gap: 14px;
+  grid-template-columns: minmax(0, 1fr) 74px;
+  gap: 12px;
   align-items: end;
   position: relative;
   z-index: 1;
@@ -218,62 +293,12 @@
   overflow-wrap: anywhere;
 }
 
-.qr-slot {
-  width: 58px;
+.qr-code {
+  width: 74px;
   aspect-ratio: 1;
-  border: 1px solid rgba(231, 47, 113, 0.34);
   border-radius: 6px;
-  background:
-    linear-gradient(90deg, rgba(231, 47, 113, 0.08) 1px, transparent 1px),
-    linear-gradient(rgba(231, 47, 113, 0.08) 1px, transparent 1px),
-    #ffffff;
-  background-size: 8px 8px;
-  color: #e72f71;
-  display: grid;
-  place-items: center;
-  font-size: 14px;
-  font-weight: 900;
-  position: relative;
-}
-
-.qr-corner {
-  position: absolute;
-  width: 13px;
-  height: 13px;
-  border-color: #e72f71;
-}
-
-.qr-corner-top-left {
-  top: 6px;
-  left: 6px;
-  border-top: 3px solid;
-  border-left: 3px solid;
-}
-
-.qr-corner-top-right {
-  top: 6px;
-  right: 6px;
-  border-top: 3px solid;
-  border-right: 3px solid;
-}
-
-.qr-corner-bottom-left {
-  bottom: 6px;
-  left: 6px;
-  border-bottom: 3px solid;
-  border-left: 3px solid;
-}
-
-.qr-corner-bottom-right {
-  right: 6px;
-  bottom: 6px;
-  border-right: 3px solid;
-  border-bottom: 3px solid;
-}
-
-.qr-label {
-  position: relative;
-  z-index: 1;
+  box-shadow: 0 8px 18px rgba(39, 31, 38, 0.12);
+  object-fit: cover;
 }
 
 .back-footer {

@@ -13,6 +13,18 @@ const contactItems = [
   { label: "Address", value: "712-8007 岡山県倉敷市鶴の浦2-5-6" },
 ];
 
+function PawPrint({ className }: { className: string }) {
+  return (
+    <span className={`paw-print ${className}`}>
+      <span className="paw-toe paw-toe-1" />
+      <span className="paw-toe paw-toe-2" />
+      <span className="paw-toe paw-toe-3" />
+      <span className="paw-toe paw-toe-4" />
+      <span className="paw-pad" />
+    </span>
+  );
+}
+
 export default function BusinessCardPage() {
   return (
     <main className="business-card-page">
@@ -25,6 +37,10 @@ export default function BusinessCardPage() {
         <article className="business-card business-card-front" aria-label="Business card front">
           <div className="front-watermark" aria-hidden="true">
             桃
+          </div>
+          <div className="front-paws" aria-hidden="true">
+            <PawPrint className="paw-print-one" />
+            <PawPrint className="paw-print-two" />
           </div>
           <Image
             src="/icon.svg"
@@ -58,13 +74,13 @@ export default function BusinessCardPage() {
               ))}
             </dl>
 
-            <div className="qr-slot" aria-label="QR code placement">
-              <span className="qr-corner qr-corner-top-left" />
-              <span className="qr-corner qr-corner-top-right" />
-              <span className="qr-corner qr-corner-bottom-left" />
-              <span className="qr-corner qr-corner-bottom-right" />
-              <span className="qr-label">QR</span>
-            </div>
+            <Image
+              src="/business-card-qr.png"
+              alt="桃谷優寿のホームページQRコード"
+              width={1024}
+              height={1024}
+              className="qr-code"
+            />
           </div>
 
           <div className="back-footer">
