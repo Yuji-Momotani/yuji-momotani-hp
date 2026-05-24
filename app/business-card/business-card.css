@@ -1,0 +1,351 @@
+.business-card-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(255, 113, 151, 0.2), transparent 30rem),
+    linear-gradient(135deg, #f8fafc 0%, #fff7f8 45%, #eef7f1 100%);
+  color: #1f2933;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 22px;
+  padding: 48px 20px;
+}
+
+.detail-link {
+  min-height: 42px;
+  border: 1px solid rgba(231, 47, 113, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #d82368;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 18px;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 14px 34px rgba(39, 31, 38, 0.1);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    translate 180ms ease;
+}
+
+.detail-link:hover {
+  border-color: rgba(231, 47, 113, 0.38);
+  box-shadow: 0 18px 42px rgba(39, 31, 38, 0.14);
+  translate: 0 -1px;
+}
+
+.detail-link:focus-visible {
+  outline: 3px solid rgba(231, 47, 113, 0.32);
+  outline-offset: 3px;
+}
+
+.card-sheet {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 28px;
+  width: min(100%, 760px);
+  justify-content: center;
+  justify-items: center;
+}
+
+.business-card {
+  position: relative;
+  width: min(91mm, 100%);
+  aspect-ratio: 91 / 55;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 26px 60px rgba(39, 31, 38, 0.18);
+  user-select: none;
+}
+
+.business-card-front {
+  background:
+    radial-gradient(circle at 84% 18%, rgba(255, 255, 255, 0.28) 0 0.18rem, transparent 0.2rem),
+    radial-gradient(circle at 16% 82%, rgba(255, 255, 255, 0.22) 0 0.16rem, transparent 0.18rem),
+    linear-gradient(135deg, #ff4f88 0%, #e72f71 46%, #be1456 100%);
+  color: #fff;
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.front-watermark {
+  position: absolute;
+  right: -0.09em;
+  bottom: -0.34em;
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 166px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+  pointer-events: none;
+}
+
+.front-mark {
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.front-mark span + span {
+  margin-top: -2px;
+}
+
+.front-content {
+  position: relative;
+  z-index: 1;
+}
+
+.role-label,
+.name-romaji,
+.front-signature,
+.back-kicker,
+.back-footer,
+.contact-row dt {
+  letter-spacing: 0;
+}
+
+.role-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+  font-weight: 700;
+  margin: 0 0 9px;
+  text-transform: uppercase;
+}
+
+.front-content h1 {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.02;
+  margin: 0;
+}
+
+.name-romaji {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 13px;
+  margin: 9px 0 0;
+}
+
+.front-signature {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 10px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.business-card-back {
+  background:
+    linear-gradient(90deg, #e72f71 0 9px, transparent 9px),
+    linear-gradient(135deg, #ffffff 0%, #fff7f9 100%);
+  border: 1px solid rgba(231, 47, 113, 0.14);
+  padding: 22px 26px 20px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.business-card-back::after {
+  content: "";
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  width: 34px;
+  height: 18px;
+  border-radius: 999px 999px 999px 0;
+  background: #6aa57a;
+  rotate: -26deg;
+}
+
+.back-heading {
+  position: relative;
+  z-index: 1;
+}
+
+.back-kicker {
+  color: #e72f71;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.back-heading h2 {
+  color: #20242b;
+  font-size: 21px;
+  line-height: 1.1;
+  margin: 5px 0 0;
+}
+
+.contact-list {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.back-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 58px;
+  gap: 14px;
+  align-items: end;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 10px;
+  align-items: baseline;
+}
+
+.contact-row dt {
+  color: #e72f71;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.contact-row dd {
+  color: #29313d;
+  font-size: 11px;
+  line-height: 1.35;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.qr-slot {
+  width: 58px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(231, 47, 113, 0.34);
+  border-radius: 6px;
+  background:
+    linear-gradient(90deg, rgba(231, 47, 113, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(231, 47, 113, 0.08) 1px, transparent 1px),
+    #ffffff;
+  background-size: 8px 8px;
+  color: #e72f71;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-weight: 900;
+  position: relative;
+}
+
+.qr-corner {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-color: #e72f71;
+}
+
+.qr-corner-top-left {
+  top: 6px;
+  left: 6px;
+  border-top: 3px solid;
+  border-left: 3px solid;
+}
+
+.qr-corner-top-right {
+  top: 6px;
+  right: 6px;
+  border-top: 3px solid;
+  border-right: 3px solid;
+}
+
+.qr-corner-bottom-left {
+  bottom: 6px;
+  left: 6px;
+  border-bottom: 3px solid;
+  border-left: 3px solid;
+}
+
+.qr-corner-bottom-right {
+  right: 6px;
+  bottom: 6px;
+  border-right: 3px solid;
+  border-bottom: 3px solid;
+}
+
+.qr-label {
+  position: relative;
+  z-index: 1;
+}
+
+.back-footer {
+  color: #69717d;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.peach-dot {
+  width: 9px;
+  height: 9px;
+  background: #e72f71;
+  border-radius: 50%;
+  box-shadow: 7px 0 0 #ff8fb1;
+}
+
+@media (max-width: 760px) {
+  .card-sheet {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  @page {
+    size: 91mm 55mm;
+    margin: 0;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .business-card-page {
+    min-height: auto;
+    padding: 0;
+    background: #fff;
+    display: block;
+  }
+
+  .detail-link {
+    display: none;
+  }
+
+  .card-sheet {
+    display: block;
+    width: 91mm;
+  }
+
+  .business-card {
+    width: 91mm;
+    height: 55mm;
+    border-radius: 0;
+    box-shadow: none;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .business-card:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+}

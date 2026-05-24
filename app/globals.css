@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #20242b;
+  --muted: #69717d;
+  --muted-background: #fff7f9;
+  --border: #f7d4e1;
+  --accent: #e72f71;
+  --accent-foreground: #ffffff;
+  --accent-soft: #ffe6ef;
+  --accent-strong: #be1456;
+  --accent-bright: #ff4f88;
+  --accent-pale: #ff8fb1;
+  --leaf: #6aa57a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --muted: #a1a1aa;
+    --muted-background: #1a0d13;
+    --border: #3a1a26;
+    --accent: #ff4f88;
+    --accent-foreground: #ffffff;
+    --accent-soft: #2a0e1a;
+    --accent-strong: #ff8fb1;
+    --accent-bright: #ff4f88;
+    --accent-pale: #ff8fb1;
+    --leaf: #6aa57a;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-background: var(--muted-background);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-bright: var(--accent-bright);
+  --color-accent-pale: var(--accent-pale);
+  --color-leaf: var(--leaf);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
+}
+
+html {
+  scroll-padding-top: 4rem;
+}
