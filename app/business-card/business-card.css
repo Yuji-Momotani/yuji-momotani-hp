@@ -1,5 +1,6 @@
 .business-card-page {
-  min-height: 100vh;
+  flex: 1;
+  min-height: calc(100svh - 4rem);
   background:
     radial-gradient(circle at top left, rgba(255, 113, 151, 0.2), transparent 30rem),
     linear-gradient(135deg, #f8fafc 0%, #fff7f8 45%, #eef7f1 100%);
@@ -9,38 +10,6 @@
   justify-items: center;
   gap: 22px;
   padding: 48px 20px;
-}
-
-.detail-link {
-  min-height: 42px;
-  border: 1px solid rgba(231, 47, 113, 0.2);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.82);
-  color: #d82368;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 0 18px;
-  font-size: 13px;
-  font-weight: 800;
-  text-decoration: none;
-  box-shadow: 0 14px 34px rgba(39, 31, 38, 0.1);
-  transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    translate 180ms ease;
-}
-
-.detail-link:hover {
-  border-color: rgba(231, 47, 113, 0.38);
-  box-shadow: 0 18px 42px rgba(39, 31, 38, 0.14);
-  translate: 0 -1px;
-}
-
-.detail-link:focus-visible {
-  outline: 3px solid rgba(231, 47, 113, 0.32);
-  outline-offset: 3px;
 }
 
 .card-sheet {
@@ -263,10 +232,6 @@
 }
 
 .back-body {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 74px;
-  gap: 12px;
-  align-items: end;
   position: relative;
   z-index: 1;
 }
@@ -293,12 +258,8 @@
   overflow-wrap: anywhere;
 }
 
-.qr-code {
-  width: 74px;
-  aspect-ratio: 1;
-  border-radius: 6px;
-  box-shadow: 0 8px 18px rgba(39, 31, 38, 0.12);
-  object-fit: cover;
+.contact-row dd span {
+  display: block;
 }
 
 .back-footer {
@@ -334,15 +295,16 @@
     background: #fff;
   }
 
+  header {
+    display: none !important;
+  }
+
   .business-card-page {
+    flex: initial;
     min-height: auto;
     padding: 0;
     background: #fff;
     display: block;
-  }
-
-  .detail-link {
-    display: none;
   }
 
   .card-sheet {

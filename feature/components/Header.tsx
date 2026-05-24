@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
+import MobileMenu from "./MobileMenu";
 
 type NavItem = {
   href: string;
@@ -79,12 +80,15 @@ export default function Header({
             )}
           </ul>
         </nav>
-        <Link
-          href="/#contact"
-          className="inline-flex h-9 items-center justify-center rounded-full bg-accent px-4 text-xs font-medium text-accent-foreground transition-opacity hover:opacity-90 sm:hidden"
-        >
-          Contact
-        </Link>
+        <div className="flex items-center gap-2 sm:hidden">
+          <Link
+            href="/#contact"
+            className="inline-flex h-9 items-center justify-center rounded-full bg-accent px-4 text-xs font-medium text-accent-foreground transition-opacity hover:opacity-90"
+          >
+            Contact
+          </Link>
+          <MobileMenu anchors={anchors} pages={pages} />
+        </div>
       </div>
     </header>
   );

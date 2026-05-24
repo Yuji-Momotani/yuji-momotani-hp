@@ -12,9 +12,6 @@ const fontFamily =
 
 const iconSvg = await fs.readFile("app/icon.svg", "utf8");
 const iconData = `data:image/svg+xml;base64,${Buffer.from(iconSvg).toString("base64")}`;
-const qrData = `data:image/png;base64,${(
-  await fs.readFile("public/business-card-qr.png")
-).toString("base64")}`;
 
 function pawPrint(x, y, scale, rotate, opacity) {
   return `
@@ -68,14 +65,12 @@ const backSvg = `
     <text x="108" y="212" font-size="62" font-weight="700" font-family="${fontFamily}" fill="#20242b">Freelance Engineer</text>
 
     <text x="108" y="338" font-size="28" font-weight="800" font-family="${fontFamily}" fill="#e72f71">PHONE</text>
-    <text x="300" y="338" font-size="30" font-family="${fontFamily}" fill="#29313d">080-4268-5557</text>
+    <text x="314" y="338" font-size="32" font-family="${fontFamily}" fill="#29313d">080-4268-5557</text>
     <text x="108" y="404" font-size="28" font-weight="800" font-family="${fontFamily}" fill="#e72f71">MAIL</text>
-    <text x="300" y="404" font-size="28" font-family="${fontFamily}" fill="#29313d">yuji.momotani256@gmail.com</text>
+    <text x="314" y="404" font-size="32" font-family="${fontFamily}" fill="#29313d">yuji.momotani256@gmail.com</text>
     <text x="108" y="470" font-size="28" font-weight="800" font-family="${fontFamily}" fill="#e72f71">ADDRESS</text>
-    <text x="300" y="470" font-size="25" font-family="${fontFamily}" fill="#29313d">712-8007</text>
-    <text x="300" y="510" font-size="25" font-family="${fontFamily}" fill="#29313d">岡山県倉敷市鶴の浦2-5-6</text>
-
-    <image href="${qrData}" x="824" y="328" width="190" height="190"/>
+    <text x="314" y="470" font-size="30" font-family="${fontFamily}" fill="#29313d">712-8007</text>
+    <text x="314" y="514" font-size="30" font-family="${fontFamily}" fill="#29313d">岡山県倉敷市鶴の浦2-5-6</text>
     <circle cx="110" cy="580" r="14" fill="#e72f71"/>
     <circle cx="132" cy="580" r="14" fill="#ff8fb1"/>
     <text x="170" y="590" font-size="30" font-weight="700" font-family="${fontFamily}" fill="#69717d">Momotani Yuji</text>

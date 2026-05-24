@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import Header from "@/feature/components/Header";
 import "./business-card.css";
 
 export const metadata = {
@@ -7,10 +7,15 @@ export const metadata = {
   description: "桃谷優寿のフリーランスエンジニア名刺デザイン",
 };
 
+const pageItems = [
+  { href: "/", label: "Top" },
+  { href: "/profile", label: "Profile" },
+];
+
 const contactItems = [
   { label: "Phone", value: "080-4268-5557" },
   { label: "Mail", value: "yuji.momotani256@gmail.com" },
-  { label: "Address", value: "712-8007 岡山県倉敷市鶴の浦2-5-6" },
+  { label: "Address", value: ["712-8007", "岡山県倉敷市鶴の浦2-5-6"] },
 ];
 
 function PawPrint({ className }: { className: string }) {
@@ -27,12 +32,9 @@ function PawPrint({ className }: { className: string }) {
 
 export default function BusinessCardPage() {
   return (
-    <main className="business-card-page">
-      <Link className="detail-link detail-link-top" href="/">
-        <span>詳細はこちら</span>
-        <span aria-hidden="true">→</span>
-      </Link>
-
+    <>
+      <Header anchors={[]} pages={pageItems} />
+      <main className="business-card-page">
       <section className="card-sheet" aria-label="Business card design preview">
         <article className="business-card business-card-front" aria-label="Business card front">
           <div className="front-watermark" aria-hidden="true">
@@ -69,18 +71,14 @@ export default function BusinessCardPage() {
               {contactItems.map((item) => (
                 <div className="contact-row" key={item.label}>
                   <dt>{item.label}</dt>
-                  <dd>{item.value}</dd>
+                  <dd>
+                    {Array.isArray(item.value)
+                      ? item.value.map((line) => <span key={line}>{line}</span>)
+                      : item.value}
+                  </dd>
                 </div>
               ))}
             </dl>
-
-            <Image
-              src="/business-card-qr.png"
-              alt="桃谷優寿のホームページQRコード"
-              width={1024}
-              height={1024}
-              className="qr-code"
-            />
           </div>
 
           <div className="back-footer">
@@ -89,11 +87,7 @@ export default function BusinessCardPage() {
           </div>
         </article>
       </section>
-
-      <Link className="detail-link detail-link-bottom" href="/">
-        <span>詳細はこちら</span>
-        <span aria-hidden="true">→</span>
-      </Link>
     </main>
+    </>
   );
 }
