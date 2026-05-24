@@ -58,7 +58,12 @@ function generateQrCodesFromActiveSheet() {
     .getValues();
 
   let createdCount = 0;
+  let targetCount = 0;
   const errors = [];
+
+  Logger.log('Sheet: ' + sheet.getName());
+  Logger.log('Last row: ' + lastRow);
+  Logger.log('Output folder: ' + outputFolder.getName() + ' / ' + outputFolder.getUrl());
 
   values.forEach(function (row, index) {
     const rowNumber = QR_CONFIG.START_ROW + index;
@@ -71,7 +76,12 @@ function generateQrCodesFromActiveSheet() {
       return;
     }
 
+    targetCount += 1;
+
     try {
+      const pathCell = sheet.getRange(rowNumber, QR_CONFIG.PATH_COLUMN);
+      pathCell.setValue('生成中...').setNote('');
+
       if (!name) {
         throw new Error('B列の名前が空です。');
       }
@@ -84,22 +94,44 @@ function generateQrCodesFromActiveSheet() {
         throw new Error('D列のicon URLには http:// または https:// から始まるURLを入力してください。');
       }
 
+      if (iconUrl && !isSupportedCenterImageUrl_(iconUrl)) {
+        throw new Error(
+          'D列のicon URLはPNGまたはJPG画像にしてください。SVGやICOはQuickChartの中央画像として使えません。'
+        );
+      }
+
       const fileName = buildFileName_(name, rowNumber);
       const blob = createQrCodeBlob_(targetUrl, iconUrl, fileName);
       const file = outputFolder.createFile(blob);
       const drivePath = QR_CONFIG.OUTPUT_FOLDER_NAME + '/' + file.getName();
 
-      sheet.getRange(rowNumber, QR_CONFIG.PATH_COLUMN)
-        .setValue(drivePath)
-        .setNote(file.getUrl());
+      pathCell.setValue(drivePath).setNote(file.getUrl());
+      Logger.log(rowNumber + '行目: created ' + drivePath + ' / ' + file.getUrl());
 
       createdCount += 1;
     } catch (error) {
-      errors.push(rowNumber + '行目: ' + error.message);
+      const message = getErrorMessage_(error);
+      sheet
+        .getRange(rowNumber, QR_CONFIG.PATH_COLUMN)
+        .setValue('ERROR: ' + message)
+        .setNote('');
+      errors.push(rowNumber + '行目: ' + message);
+      Logger.log(rowNumber + '行目: ERROR ' + message);
     }
   });
 
   SpreadsheetApp.flush();
+
+  if (targetCount === 0) {
+    const message =
+      '作成フラグが1の行が見つかりませんでした。\n\n' +
+      '現在の対象シート: ' +
+      sheet.getName() +
+      '\n' +
+      'E列に 1 が入っている行だけQRコードを生成します。';
+    SpreadsheetApp.getUi().alert('QRコード生成結果', message, SpreadsheetApp.getUi().ButtonSet.OK);
+    return;
+  }
 
   if (errors.length > 0) {
     const message =
@@ -112,7 +144,11 @@ function generateQrCodesFromActiveSheet() {
     return;
   }
 
-  spreadsheet.toast(createdCount + '件のQRコードを作成しました。', 'QRコード', 5);
+  SpreadsheetApp.getUi().alert(
+    'QRコード生成結果',
+    createdCount + '件のQRコードを作成しました。',
+    SpreadsheetApp.getUi().ButtonSet.OK
+  );
 }
 
 function getRootOutputFolderOrThrow_() {
@@ -137,12 +173,7 @@ function createQrCodeBlob_(targetUrl, iconUrl, fileName) {
   const status = response.getResponseCode();
 
   if (status < 200 || status >= 300) {
-    throw new Error(
-      'QR生成APIでエラーが発生しました。HTTP ' +
-        status +
-        ': ' +
-        response.getContentText().slice(0, 300)
-    );
+    throw new Error('QR生成APIでエラーが発生しました。HTTP ' + status + ': ' + getQuickChartError_(response));
   }
 
   return response.getBlob().setName(fileName);
@@ -181,7 +212,7 @@ function buildFileName_(name, rowNumber) {
     'yyyyMMdd-HHmmss'
   );
   const safeName = sanitizeFileName_(name || 'row-' + rowNumber);
-  return safeName + '-' + timeStamp + '.png';
+  return safeName + '-row' + rowNumber + '-' + timeStamp + '.png';
 }
 
 function sanitizeFileName_(value) {
@@ -194,9 +225,45 @@ function sanitizeFileName_(value) {
 }
 
 function isCreateFlag_(value) {
-  return value === 1 || value === '1' || value === true;
+  if (value === true) {
+    return true;
+  }
+
+  return String(value).trim() === '1';
 }
 
 function isHttpUrl_(value) {
   return /^https?:\/\/\S+$/i.test(value);
+}
+
+function isSupportedCenterImageUrl_(value) {
+  const url = String(value).split('?')[0].toLowerCase();
+  return /\.(png|jpg|jpeg)$/.test(url);
+}
+
+function getQuickChartError_(response) {
+  const headers = response.getAllHeaders();
+  const quickChartError =
+    headers['x-quickchart-error'] ||
+    headers['X-Quickchart-Error'] ||
+    headers['X-QuickChart-Error'];
+
+  if (quickChartError) {
+    return quickChartError;
+  }
+
+  const contentType = String(headers['Content-Type'] || headers['content-type'] || '');
+  if (contentType.indexOf('image/') === 0) {
+    return '画像形式のエラーレスポンスが返りました。D列のicon URLが公開PNG/JPGか確認してください。';
+  }
+
+  return response.getContentText().slice(0, 300);
+}
+
+function getErrorMessage_(error) {
+  if (error && error.message) {
+    return error.message;
+  }
+
+  return String(error);
 }
