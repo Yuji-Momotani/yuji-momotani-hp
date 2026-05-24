@@ -16,6 +16,13 @@ export const metadata: Metadata = {
   title: "桃谷 優寿 | Freelance Engineer",
   description:
     "フリーランスエンジニア 桃谷 優寿 (Yuji Momotani) のポートフォリオサイト。スキル・実績・経歴・お問い合わせはこちらから。",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: "桃谷 優寿 | Freelance Engineer",
     description:

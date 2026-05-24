@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import "./business-card.css";
 
@@ -25,10 +26,14 @@ export default function BusinessCardPage() {
           <div className="front-watermark" aria-hidden="true">
             桃
           </div>
-          <div className="front-mark" aria-hidden="true">
-            <span>Y</span>
-            <span>M</span>
-          </div>
+          <Image
+            src="/icon.svg"
+            alt=""
+            width={46}
+            height={46}
+            className="front-mark"
+            priority
+          />
           <div className="front-content">
             <p className="role-label">Freelance Engineer</p>
             <h1>桃谷優寿</h1>

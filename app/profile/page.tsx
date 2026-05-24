@@ -12,18 +12,22 @@ export const metadata: Metadata = {
     "桃谷 優寿 (Yuji Momotani) のプロフィール、スキルセット、実績、経歴のご紹介です。",
 };
 
-const navItems = [
+const anchorItems = [
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
   { href: "#works", label: "Works" },
   { href: "#career", label: "Career" },
+];
+
+const pageItems = [
   { href: "/", label: "Top" },
+  { href: "/business-card", label: "Business Card" },
 ];
 
 export default function ProfilePage() {
   return (
     <>
-      <Header items={navItems} />
+      <Header anchors={anchorItems} pages={pageItems} />
       <main className="flex-1">
         <section className="border-b border-border bg-accent-soft px-4 py-20 sm:px-8 sm:py-28">
           <div className="mx-auto max-w-5xl">
