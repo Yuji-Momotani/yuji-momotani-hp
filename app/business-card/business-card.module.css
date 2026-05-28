@@ -1,4 +1,4 @@
-.business-card-page {
+.page {
   flex: 1;
   min-height: calc(100svh - 4rem);
   background:
@@ -12,7 +12,7 @@
   padding: 48px 20px;
 }
 
-.card-sheet {
+.cardSheet {
   display: grid;
   grid-template-columns: repeat(2, max-content);
   gap: 28px;
@@ -21,7 +21,7 @@
   justify-items: center;
 }
 
-.business-card {
+.card {
   position: relative;
   width: min(91mm, 100%);
   aspect-ratio: 91 / 55;
@@ -31,7 +31,7 @@
   user-select: none;
 }
 
-.business-card-front {
+.cardFront {
   background:
     radial-gradient(circle at 16% 82%, rgba(255, 255, 255, 0.22) 0 0.16rem, transparent 0.18rem),
     linear-gradient(135deg, #ff4f88 0%, #e72f71 46%, #be1456 100%);
@@ -42,7 +42,7 @@
   justify-content: space-between;
 }
 
-.front-watermark {
+.frontWatermark {
   position: absolute;
   right: -0.09em;
   bottom: -0.34em;
@@ -54,7 +54,7 @@
   pointer-events: none;
 }
 
-.front-paws {
+.frontPaws {
   position: absolute;
   top: 35px;
   right: 42px;
@@ -64,20 +64,20 @@
   z-index: 1;
 }
 
-.paw-print {
+.pawPrint {
   position: absolute;
   width: 34px;
   height: 32px;
 }
 
-.paw-print-one {
+.pawPrintOne {
   top: 0;
   right: 40px;
   opacity: 0.34;
   rotate: -17deg;
 }
 
-.paw-print-two {
+.pawPrintTwo {
   top: 19px;
   right: 4px;
   opacity: 0.24;
@@ -85,44 +85,44 @@
   scale: 0.9;
 }
 
-.paw-toe,
-.paw-pad {
+.pawToe,
+.pawPad {
   position: absolute;
   display: block;
   background: #fff;
 }
 
-.paw-toe {
+.pawToe {
   width: 8px;
   height: 10px;
   border-radius: 50%;
 }
 
-.paw-toe-1 {
+.pawToe1 {
   top: 7px;
   left: 1px;
   rotate: -27deg;
 }
 
-.paw-toe-2 {
+.pawToe2 {
   top: 1px;
   left: 9px;
   rotate: -7deg;
 }
 
-.paw-toe-3 {
+.pawToe3 {
   top: 1px;
   left: 18px;
   rotate: 7deg;
 }
 
-.paw-toe-4 {
+.pawToe4 {
   top: 7px;
   right: 1px;
   rotate: 27deg;
 }
 
-.paw-pad {
+.pawPad {
   left: 8px;
   bottom: 1px;
   width: 18px;
@@ -130,7 +130,7 @@
   border-radius: 52% 48% 58% 52%;
 }
 
-.front-mark {
+.frontMark {
   width: 46px;
   height: 46px;
   border-radius: 15px;
@@ -139,21 +139,21 @@
   z-index: 1;
 }
 
-.front-content {
+.frontContent {
   position: relative;
   z-index: 1;
 }
 
-.role-label,
-.name-romaji,
-.front-signature,
-.back-kicker,
-.back-footer,
-.contact-row dt {
+.roleLabel,
+.nameRomaji,
+.frontSignature,
+.backKicker,
+.backFooter,
+.contactRow dt {
   letter-spacing: 0;
 }
 
-.role-label {
+.roleLabel {
   color: rgba(255, 255, 255, 0.8);
   font-size: 10px;
   font-weight: 700;
@@ -161,20 +161,20 @@
   text-transform: uppercase;
 }
 
-.front-content h1 {
+.frontContent h1 {
   font-size: 36px;
   font-weight: 800;
   line-height: 1.02;
   margin: 0;
 }
 
-.name-romaji {
+.nameRomaji {
   color: rgba(255, 255, 255, 0.86);
   font-size: 13px;
   margin: 9px 0 0;
 }
 
-.front-signature {
+.frontSignature {
   color: rgba(255, 255, 255, 0.78);
   font-size: 10px;
   margin: 0;
@@ -182,7 +182,7 @@
   z-index: 1;
 }
 
-.business-card-back {
+.cardBack {
   background:
     linear-gradient(90deg, #e72f71 0 9px, transparent 9px),
     linear-gradient(135deg, #ffffff 0%, #fff7f9 100%);
@@ -193,7 +193,7 @@
   justify-content: space-between;
 }
 
-.business-card-back::after {
+.cardBack::after {
   content: "";
   position: absolute;
   top: 22px;
@@ -205,25 +205,25 @@
   rotate: -26deg;
 }
 
-.back-heading {
+.backHeading {
   position: relative;
   z-index: 1;
 }
 
-.back-kicker {
+.backKicker {
   color: #e72f71;
   font-size: 11px;
   font-weight: 800;
 }
 
-.back-heading h2 {
+.backHeading h2 {
   color: #20242b;
   font-size: 21px;
   line-height: 1.1;
   margin: 5px 0 0;
 }
 
-.contact-list {
+.contactList {
   display: grid;
   gap: 7px;
   margin: 0;
@@ -231,26 +231,26 @@
   z-index: 1;
 }
 
-.back-body {
+.backBody {
   position: relative;
   z-index: 1;
 }
 
-.contact-row {
+.contactRow {
   display: grid;
   grid-template-columns: 54px minmax(0, 1fr);
   gap: 10px;
   align-items: baseline;
 }
 
-.contact-row dt {
+.contactRow dt {
   color: #e72f71;
   font-size: 9px;
   font-weight: 800;
   text-transform: uppercase;
 }
 
-.contact-row dd {
+.contactRow dd {
   color: #29313d;
   font-size: 11px;
   line-height: 1.35;
@@ -258,11 +258,11 @@
   overflow-wrap: anywhere;
 }
 
-.contact-row dd span {
+.contactRow dd span {
   display: block;
 }
 
-.back-footer {
+.backFooter {
   color: #69717d;
   display: flex;
   align-items: center;
@@ -271,7 +271,7 @@
   font-weight: 700;
 }
 
-.peach-dot {
+.peachDot {
   width: 9px;
   height: 9px;
   background: #e72f71;
@@ -279,8 +279,63 @@
   box-shadow: 7px 0 0 #ff8fb1;
 }
 
+.socialLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.socialLink:hover {
+  transform: translateY(-2px);
+}
+
+.socialLink:focus-visible {
+  outline-offset: 3px;
+}
+
+.instagramLink {
+  background: linear-gradient(135deg, #ff4f88 0%, #e72f71 46%, #be1456 100%);
+  box-shadow: 0 12px 26px rgba(231, 47, 113, 0.28);
+}
+
+.instagramLink:hover {
+  box-shadow: 0 16px 32px rgba(231, 47, 113, 0.36);
+}
+
+.instagramLink:focus-visible {
+  outline: 2px solid #be1456;
+}
+
+.githubLink {
+  background: linear-gradient(135deg, #3a3f46 0%, #24292e 50%, #161b22 100%);
+  box-shadow: 0 12px 26px rgba(22, 27, 34, 0.28);
+}
+
+.githubLink:hover {
+  box-shadow: 0 16px 32px rgba(22, 27, 34, 0.36);
+}
+
+.githubLink:focus-visible {
+  outline: 2px solid #161b22;
+}
+
 @media (max-width: 760px) {
-  .card-sheet {
+  .cardSheet {
     grid-template-columns: 1fr;
   }
 }
@@ -291,15 +346,19 @@
     margin: 0;
   }
 
-  body {
+  :global(body) {
     background: #fff;
   }
 
-  header {
+  :global(header) {
     display: none !important;
   }
 
-  .business-card-page {
+  .socialLinks {
+    display: none !important;
+  }
+
+  .page {
     flex: initial;
     min-height: auto;
     padding: 0;
@@ -307,12 +366,12 @@
     display: block;
   }
 
-  .card-sheet {
+  .cardSheet {
     display: block;
     width: 91mm;
   }
 
-  .business-card {
+  .card {
     width: 91mm;
     height: 55mm;
     border-radius: 0;
@@ -321,7 +380,7 @@
     page-break-after: always;
   }
 
-  .business-card:last-child {
+  .card:last-child {
     break-after: auto;
     page-break-after: auto;
   }
