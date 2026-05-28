@@ -3,19 +3,17 @@ import Header from "@/feature/components/Header";
 import Footer from "@/feature/components/Footer";
 import About from "@/feature/components/sections/About";
 import Skills from "@/feature/components/sections/Skills";
-import Works from "@/feature/components/sections/Works";
 import Career from "@/feature/components/sections/Career";
 
 export const metadata: Metadata = {
   title: "Profile | 桃谷 優寿",
   description:
-    "桃谷 優寿 (Yuji Momotani) のプロフィール、スキルセット、実績、経歴のご紹介です。",
+    "桃谷 優寿 (Yuji Momotani) のプロフィール、スキルセット、経歴のご紹介です。",
 };
 
 const anchorItems = [
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
-  { href: "#works", label: "Works" },
   { href: "#career", label: "Career" },
 ];
 
@@ -38,13 +36,12 @@ export default function ProfilePage() {
               エンジニアとしての歩み
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-              これまでの経歴・身につけてきたスキル・関わったプロジェクトをまとめています。技術的な背景に関心のある方はこちらをご覧ください。
+              これまでの経歴・身につけてきたスキルをまとめています。
             </p>
           </div>
         </section>
         <About />
         <Skills />
-        <Works />
         <Career />
       </main>
       <Footer />

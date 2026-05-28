@@ -9,9 +9,11 @@ export default function About() {
         <div className="grid gap-12 sm:grid-cols-5">
           <div className="sm:col-span-3">
             <p className="text-base leading-relaxed text-muted sm:text-lg">
-              ここに自己紹介文が入ります。
+              これまでさまざまな業種・チームで、Webシステムを中心とした開発に携わってきました。
               <br />
-              バックグラウンド、得意領域、仕事に対する姿勢など、お会いした方に伝えたい情報を記載してください。
+              その中で培った技術力と現場での経験を活かし、現在はフリーランスエンジニアとして活動しています。
+              <br />
+              ただ作ることを目的にせず、お客様の事業や業務にとって本当に成果につながるかを大切にしながら、開発に向き合っています。
             </p>
           </div>
           <dl className="space-y-4 sm:col-span-2">

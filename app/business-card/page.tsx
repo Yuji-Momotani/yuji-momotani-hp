@@ -18,10 +18,26 @@ const contactItems = [
   { label: "Address", value: ["712-8007", "岡山県倉敷市鶴の浦2-5-6"] },
 ];
 
+const xUrl = "https://x.com/uz1016peach?s=21&t=4m7qmBA1sGdSe7b2kWWz9g";
+
 const instagramUrl =
   "https://www.instagram.com/yuzi8757momotani?igsh=MXFyN3pmNjNoY20yNA%3D%3D&utm_source=qr";
 
 const githubUrl = "https://github.com/Yuji-Momotani";
+
+function XIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="20"
+      height="20"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
 
 function InstagramIcon() {
   return (
@@ -132,6 +148,16 @@ export default function BusinessCardPage() {
       </section>
 
       <nav className={styles.socialLinks} aria-label="SNS links">
+        <a
+          className={`${styles.socialLink} ${styles.xLink}`}
+          href={xUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="X (新しいタブで開く)"
+        >
+          <XIcon />
+          <span>X</span>
+        </a>
         <a
           className={`${styles.socialLink} ${styles.instagramLink}`}
           href={instagramUrl}

@@ -6,19 +6,25 @@ type SkillCategory = {
 const categories: SkillCategory[] = [
   {
     title: "Frontend",
-    items: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
+    items: ["TypeScript", "React", "Next.js", "JavaScript", "jQuery"],
   },
   {
     title: "Backend",
-    items: ["Node.js", "Go", "PostgreSQL"],
+    items: ["Go", "PHP", "Scala", "C# / .NET", "REST API"],
   },
   {
-    title: "Infrastructure",
-    items: ["AWS", "Docker", "GitHub Actions"],
+    title: "AWS / Infrastructure",
+    items: [
+      "AWS",
+      "Terraform",
+      "DynamoDB",
+      "SNS / SQS / Lambda",
+      "MySQL / PostgreSQL",
+    ],
   },
   {
-    title: "Other",
-    items: ["Figma", "要件定義", "技術選定"],
+    title: "Architecture / Team",
+    items: ["Amazon Bedrock", "Cognito", "CQRS", "プロジェクトリード"],
   },
 ];
 
@@ -30,8 +36,12 @@ export default function Skills() {
     >
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 flex items-baseline gap-4">
-          <span className="font-mono text-sm font-semibold text-accent">02.</span>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Skills</h2>
+          <span className="font-mono text-sm font-semibold text-accent">
+            02.
+          </span>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            Skills
+          </h2>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((category) => (
