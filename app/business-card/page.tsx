@@ -25,7 +25,7 @@ const instagramUrl =
 
 const githubUrl = "https://github.com/Yuji-Momotani";
 
-const lineUrl = "https://line.me/ti/p/i9Hf1sTR4S";
+const lineUrl = "https://lin.ee/Xa9aeab";
 
 function XIcon() {
   return (
@@ -110,102 +110,115 @@ export default function BusinessCardPage() {
     <>
       <Header anchors={[]} pages={pageItems} />
       <main className={styles.page}>
-      <section className={styles.cardSheet} aria-label="Business card design preview">
-        <article className={`${styles.card} ${styles.cardFront}`} aria-label="Business card front">
-          <div className={styles.frontWatermark} aria-hidden="true">
-            桃
-          </div>
-          <div className={styles.frontPaws} aria-hidden="true">
-            <PawPrint variant={styles.pawPrintOne} />
-            <PawPrint variant={styles.pawPrintTwo} />
-          </div>
-          <Image
-            src="/icon.svg"
-            alt=""
-            width={46}
-            height={46}
-            className={styles.frontMark}
-            priority
-          />
-          <div className={styles.frontContent}>
-            <p className={styles.roleLabel}>Freelance Engineer</p>
-            <h1>桃谷優寿</h1>
-            <p className={styles.nameRomaji}>Yuji Momotani</p>
-          </div>
-          <p className={styles.frontSignature}>Designing calm, reliable web systems.</p>
-        </article>
-
-        <article className={`${styles.card} ${styles.cardBack}`} aria-label="Business card back">
-          <div className={styles.backHeading}>
-            <span className={styles.backKicker}>Yuji Momotani</span>
-            <h2>Freelance Engineer</h2>
-          </div>
-
-          <div className={styles.backBody}>
-            <dl className={styles.contactList}>
-              {contactItems.map((item) => (
-                <div className={styles.contactRow} key={item.label}>
-                  <dt>{item.label}</dt>
-                  <dd>
-                    {Array.isArray(item.value)
-                      ? item.value.map((line) => <span key={line}>{line}</span>)
-                      : item.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <div className={styles.backFooter}>
-            <span className={styles.peachDot} aria-hidden="true" />
-            <span>Momotani Yuji</span>
-          </div>
-        </article>
-      </section>
-
-      <nav className={styles.socialLinks} aria-label="SNS links">
-        <a
-          className={`${styles.socialLink} ${styles.xLink}`}
-          href={xUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="X (新しいタブで開く)"
+        <section
+          className={styles.cardSheet}
+          aria-label="Business card design preview"
         >
-          <XIcon />
-          <span>X</span>
-        </a>
-        <a
-          className={`${styles.socialLink} ${styles.instagramLink}`}
-          href={instagramUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram (新しいタブで開く)"
-        >
-          <InstagramIcon />
-          <span>Instagram</span>
-        </a>
-        <a
-          className={`${styles.socialLink} ${styles.lineLink}`}
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LINE (新しいタブで開く)"
-        >
-          <LineIcon />
-          <span>LINE</span>
-        </a>
-        <a
-          className={`${styles.socialLink} ${styles.githubLink}`}
-          href={githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub (新しいタブで開く)"
-        >
-          <GitHubIcon />
-          <span>GitHub</span>
-        </a>
-      </nav>
-    </main>
+          <article
+            className={`${styles.card} ${styles.cardFront}`}
+            aria-label="Business card front"
+          >
+            <div className={styles.frontWatermark} aria-hidden="true">
+              桃
+            </div>
+            <div className={styles.frontPaws} aria-hidden="true">
+              <PawPrint variant={styles.pawPrintOne} />
+              <PawPrint variant={styles.pawPrintTwo} />
+            </div>
+            <Image
+              src="/icon.svg"
+              alt=""
+              width={46}
+              height={46}
+              className={styles.frontMark}
+              priority
+            />
+            <div className={styles.frontContent}>
+              <p className={styles.roleLabel}>Freelance Engineer</p>
+              <h1>桃谷優寿</h1>
+              <p className={styles.nameRomaji}>Yuji Momotani</p>
+            </div>
+            <p className={styles.frontSignature}>
+              Designing calm, reliable web systems.
+            </p>
+          </article>
+
+          <article
+            className={`${styles.card} ${styles.cardBack}`}
+            aria-label="Business card back"
+          >
+            <div className={styles.backHeading}>
+              <span className={styles.backKicker}>Yuji Momotani</span>
+              <h2>Freelance Engineer</h2>
+            </div>
+
+            <div className={styles.backBody}>
+              <dl className={styles.contactList}>
+                {contactItems.map((item) => (
+                  <div className={styles.contactRow} key={item.label}>
+                    <dt>{item.label}</dt>
+                    <dd>
+                      {Array.isArray(item.value)
+                        ? item.value.map((line) => (
+                            <span key={line}>{line}</span>
+                          ))
+                        : item.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+
+            <div className={styles.backFooter}>
+              <span className={styles.peachDot} aria-hidden="true" />
+              <span>Momotani Yuji</span>
+            </div>
+          </article>
+        </section>
+
+        <nav className={styles.socialLinks} aria-label="SNS links">
+          <a
+            className={`${styles.socialLink} ${styles.xLink}`}
+            href={xUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="X (新しいタブで開く)"
+          >
+            <XIcon />
+            <span>X</span>
+          </a>
+          <a
+            className={`${styles.socialLink} ${styles.instagramLink}`}
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram (新しいタブで開く)"
+          >
+            <InstagramIcon />
+            <span>Instagram</span>
+          </a>
+          <a
+            className={`${styles.socialLink} ${styles.lineLink}`}
+            href={lineUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LINE (新しいタブで開く)"
+          >
+            <LineIcon />
+            <span>LINE</span>
+          </a>
+          <a
+            className={`${styles.socialLink} ${styles.githubLink}`}
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub (新しいタブで開く)"
+          >
+            <GitHubIcon />
+            <span>GitHub</span>
+          </a>
+        </nav>
+      </main>
     </>
   );
 }
